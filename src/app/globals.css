@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Подключение локальных шрифтов */
+@font-face {
+  font-family: 'Montserrat Alternates';
+  src: url('/fonts/MontserratAlternates.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMetanaNext';
+  src: url('/fonts/NeueMetanaNext-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMetanaNextOutline';
+  src: url('/fonts/NeueMetanaNextOutline-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    font-family: 'Montserrat Alternates', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased bg-background text-gray-800;
+    font-family: 'Montserrat Alternates', system-ui, sans-serif !important;
+  }
+
+  h1, h2 {
+    font-family: 'NeueMetanaNext', sans-serif;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: 'Montserrat Alternates', system-ui, sans-serif;
+  }
+
+  .font-outline {
+    -webkit-text-stroke: 1px #FF36F7;
+    color: transparent;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply pt-32 min-h-screen;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-soft transition-all duration-300 hover:shadow-hover;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-white rounded-full font-medium shadow-soft 
+           transition-all duration-300 hover:shadow-hover hover:translate-y-[-2px];
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-cream text-gray-800 rounded-full font-medium shadow-soft 
+           transition-all duration-300 hover:shadow-hover hover:translate-y-[-2px];
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-display font-bold text-gray-800 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-600 mb-8;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 rounded-2xl;
+  }
+
+  .neon-glow {
+    @apply relative;
+  }
+
+  .neon-glow::before {
+    content: '';
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-primary via-secondary to-accent opacity-75 blur-xl rounded-full;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-cream to-peach bg-clip-text text-transparent;
+  }
+}
+
+/* Декоративные элементы */
+.pattern-dots {
+  background-image: radial-gradient(#FF8BA7 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-lines {
+  background: linear-gradient(135deg, #FFC6C7 25%, transparent 25%) -10px 0,
+              linear-gradient(225deg, #FFC6C7 25%, transparent 25%) -10px 0,
+              linear-gradient(315deg, #FFC6C7 25%, transparent 25%),
+              linear-gradient(45deg, #FFC6C7 25%, transparent 25%);
+  background-size: 20px 20px;
+  background-color: #FFFAF5;
+}
+
+/* Анимации */
+.hover-lift {
+  transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Кастомный курсор */
+* {
+  cursor: url('/cursor.svg'), auto;
+}
+
+/* Плавная прокрутка */
+html {
+  scroll-behavior: smooth;
+}
+
