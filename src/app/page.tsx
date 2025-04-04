@@ -357,9 +357,9 @@ export default function Home() {
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                     <motion.div
-                      className="absolute inset-0 bg-black/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 z-20"
-                      initial={false}
-                      whileHover={{ backdropBlur: '2px', opacity: 1 }}
+                      className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500 z-20"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
                     />
                     <Image
                       src={cake.image}
